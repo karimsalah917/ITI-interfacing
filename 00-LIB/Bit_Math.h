@@ -1,6 +1,17 @@
+ /******************************************************************************
+ *
+ * Module: Common - Platform Types Abstraction
+ *
+ * File Name: Bit_Maths.h
+ *
+ * Description: macro function to used it with any 8-BIT register
+ *
+ * Author: Karim salah
+ *
+ *******************************************************************************/
+
 #ifndef BIT_MATH_H_
 #define BIT_MATH_H_
-#define NIB
 
 // Set bit BIT in REG
 #define SET_BIT(REG,BIT)    (REG|=(1<<BIT))
@@ -30,18 +41,6 @@
 
 // Assign VALUE to REG
 #define ASSIGN_REG(REG,VALUE)     (REG=VALUE) 
-// Assign VALUE to high nibble REG
-#define ASSIGN_HIGH_NIB(REG,VALUE) ()
-// Assign VALUE to low nibble REG 
-#define ASSIGN_LOW_NIB(REG,VALUE)  
-// Right shift by NO in REG
-#define RSHFT_REG(REG, NO)
-// Left shift by NO in REG
-#define LSHFT_REG(REG, NO)          
-// Circular right shift by NO in REG
-#define CRSHFT_REG(REG, NO)
-// Circular left shift by NO in REG
-#define CLSHFT_REG(REG,NO)        
-
-
+#define SET_PORT(port) (port=0xff)
+#define CLR_PORT(port) (port=0x00)
 #endif    
