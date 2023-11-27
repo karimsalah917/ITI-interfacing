@@ -29,3 +29,6 @@
 #define DDRD *(volatile unsigned char*) 0x31
 #define PORTD *(volatile unsigned char*) 0x32
 #define PIND *(volatile unsigned char*) 0x30
+/**Special function input/output register**/
+#define SFIOR *(volatile unsigned char*) 0x50
+#define PUD_BIT 2

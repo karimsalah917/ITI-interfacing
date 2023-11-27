@@ -1,14 +1,19 @@
-/*
- * DIO.h
- * this is dio driver for Atmega32/16 
- * Created: 11/25/2023 5:07:18 PM
- *  Author: karim salah
- */ 
+ /******************************************************************************
+ *
+ * Module: DIO driver for AVR atmega 32
+ *
+ * File Name: gpio.h
+ *
+ * Description: header file of the driver
+ *
+ * Author: karim salah
+ *
+ *****************************************************************************/
 
 #ifndef DIO_H_
 #define DIO_H_
 
-/*Include here Your Standard Types File that contains  typedef, SET,CLEAR,Toggle...etc */
+
 
 /**
  *@brief : The ports Type of the AVR Atmega32                            
