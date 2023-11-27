@@ -182,7 +182,7 @@ DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t 
 	{ ret_enumErrorStatus=DIO_enumWrongPort; }
 	else if((Copy_enumPinNum>DIO_enumPin7)||(Copy_enumPinNum<DIO_enumPin0))
 	{ ret_enumErrorStatus= DIO_enumWrongPin; }
-	else if((Copy_enumLogicState<DIO_enumLogicLow)||(Copy_enumConfig>DIO_enumLogicHigh))
+	else if((Copy_enumLogicState<DIO_enumLogicLow)||(Copy_enumLogicState>DIO_enumLogicHigh))
 	{ ret_enumErrorStatus = DIO_enumWrongConfig; }
 	else
 	{
@@ -341,7 +341,7 @@ DIO_enumError_t DIO_enumWritePortValue(DIO_enumPorts_t Copy_enumPortNum,uint8 co
 	{
 		ret_enumErrorStatus = DIO_enumWrongPort;
 	}
-	else if ((uint8Value > 255) || (Copy_enumPinNum < 0))
+	else if ((copy_uint8Value>255) || (copy_uint8Value < 0))
 	{
 		ret_enumErrorStatus = DIO_enumWrongConfig;
 	}
@@ -350,9 +350,9 @@ DIO_enumError_t DIO_enumWritePortValue(DIO_enumPorts_t Copy_enumPortNum,uint8 co
 		switch (Copy_enumPortNum)
 		{
 		case DIO_enumPortA: ASSIGN_REG(PORTA,copy_uint8Value); break;
-		case DIO_enumPortA: ASSIGN_REG(PORTB, copy_uint8Value); break;
-		case DIO_enumPortA: ASSIGN_REG(PORTC, copy_uint8Value); break;
-		case DIO_enumPortA: ASSIGN_REG(PORTD, copy_uint8Value); break;
+		case DIO_enumPortB: ASSIGN_REG(PORTB, copy_uint8Value); break;
+		case DIO_enumPortC: ASSIGN_REG(PORTC, copy_uint8Value); break;
+		case DIO_enumPortD: ASSIGN_REG(PORTD, copy_uint8Value); break;
 		default:
 			break;
 		}

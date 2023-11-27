@@ -1,0 +1,765 @@
+
+task1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000006c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000476  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  00000476  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  000004a5  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000068  00000000  00000000  000004b3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000011a6  00000000  00000000  0000051b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000006b0  00000000  00000000  000016c1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000007e6  00000000  00000000  00001d71  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000098  00000000  00000000  00002558  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000213  00000000  00000000  000025f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000995  00000000  00000000  00002803  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  00003198  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  000003f4  000003f4  00000468  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000031e0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.DIO_enumSetPinConfig 000001c6  0000006c  0000006c  000000e0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.DIO_enumSetPin 00000136  00000232  00000232  000002a6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.main    00000076  00000368  00000368  000003dc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.__dummy_fini 00000002  000003fc  000003fc  00000470  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.__dummy_funcs_on_exit 00000002  000003fe  000003fe  00000472  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.__dummy_simulator_exit 00000002  00000400  00000400  00000474  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.exit    00000016  000003de  000003de  00000452  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text._Exit   00000004  000003f8  000003f8  0000046c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+   8:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+   c:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  10:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  14:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  18:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  1c:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  20:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  24:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  28:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  2c:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  30:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  34:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  38:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  3c:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  40:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  44:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  48:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  4c:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+  50:	0c 94 fa 01 	jmp	0x3f4	; 0x3f4 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 b4 01 	call	0x368	; 0x368 <main>
+  64:	0c 94 ef 01 	jmp	0x3de	; 0x3de <exit>
+
+00000068 <_exit>:
+  68:	f8 94       	cli
+
+0000006a <__stop_program>:
+  6a:	ff cf       	rjmp	.-2      	; 0x6a <__stop_program>
+
+Disassembly of section .text:
+
+000003f4 <__bad_interrupt>:
+ 3f4:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.DIO_enumSetPinConfig:
+
+0000006c <DIO_enumSetPinConfig>:
+		default:
+			break;
+		}
+	}
+	return ret_enumErrorStatus;
+}
+  6c:	84 30       	cpi	r24, 0x04	; 4
+  6e:	08 f0       	brcs	.+2      	; 0x72 <DIO_enumSetPinConfig+0x6>
+  70:	d0 c0       	rjmp	.+416    	; 0x212 <DIO_enumSetPinConfig+0x1a6>
+  72:	68 30       	cpi	r22, 0x08	; 8
+  74:	08 f0       	brcs	.+2      	; 0x78 <DIO_enumSetPinConfig+0xc>
+  76:	cf c0       	rjmp	.+414    	; 0x216 <DIO_enumSetPinConfig+0x1aa>
+  78:	43 30       	cpi	r20, 0x03	; 3
+  7a:	08 f0       	brcs	.+2      	; 0x7e <DIO_enumSetPinConfig+0x12>
+  7c:	ce c0       	rjmp	.+412    	; 0x21a <DIO_enumSetPinConfig+0x1ae>
+  7e:	81 30       	cpi	r24, 0x01	; 1
+  80:	c1 f1       	breq	.+112    	; 0xf2 <DIO_enumSetPinConfig+0x86>
+  82:	38 f0       	brcs	.+14     	; 0x92 <DIO_enumSetPinConfig+0x26>
+  84:	82 30       	cpi	r24, 0x02	; 2
+  86:	09 f4       	brne	.+2      	; 0x8a <DIO_enumSetPinConfig+0x1e>
+  88:	64 c0       	rjmp	.+200    	; 0x152 <DIO_enumSetPinConfig+0xe6>
+  8a:	83 30       	cpi	r24, 0x03	; 3
+  8c:	09 f4       	brne	.+2      	; 0x90 <DIO_enumSetPinConfig+0x24>
+  8e:	91 c0       	rjmp	.+290    	; 0x1b2 <DIO_enumSetPinConfig+0x146>
+  90:	c6 c0       	rjmp	.+396    	; 0x21e <DIO_enumSetPinConfig+0x1b2>
+  92:	41 30       	cpi	r20, 0x01	; 1
+  94:	81 f0       	breq	.+32     	; 0xb6 <DIO_enumSetPinConfig+0x4a>
+  96:	18 f0       	brcs	.+6      	; 0x9e <DIO_enumSetPinConfig+0x32>
+  98:	42 30       	cpi	r20, 0x02	; 2
+  9a:	f1 f0       	breq	.+60     	; 0xd8 <DIO_enumSetPinConfig+0x6c>
+  9c:	c2 c0       	rjmp	.+388    	; 0x222 <DIO_enumSetPinConfig+0x1b6>
+  9e:	2a b3       	in	r18, 0x1a	; 26
+  a0:	81 e0       	ldi	r24, 0x01	; 1
+  a2:	90 e0       	ldi	r25, 0x00	; 0
+  a4:	02 c0       	rjmp	.+4      	; 0xaa <DIO_enumSetPinConfig+0x3e>
+  a6:	88 0f       	add	r24, r24
+  a8:	99 1f       	adc	r25, r25
+  aa:	6a 95       	dec	r22
+  ac:	e2 f7       	brpl	.-8      	; 0xa6 <DIO_enumSetPinConfig+0x3a>
+  ae:	82 2b       	or	r24, r18
+  b0:	8a bb       	out	0x1a, r24	; 26
+  b2:	80 e0       	ldi	r24, 0x00	; 0
+  b4:	08 95       	ret
+  b6:	2a b3       	in	r18, 0x1a	; 26
+  b8:	81 e0       	ldi	r24, 0x01	; 1
+  ba:	90 e0       	ldi	r25, 0x00	; 0
+  bc:	02 c0       	rjmp	.+4      	; 0xc2 <DIO_enumSetPinConfig+0x56>
+  be:	88 0f       	add	r24, r24
+  c0:	99 1f       	adc	r25, r25
+  c2:	6a 95       	dec	r22
+  c4:	e2 f7       	brpl	.-8      	; 0xbe <DIO_enumSetPinConfig+0x52>
+  c6:	98 2f       	mov	r25, r24
+  c8:	90 95       	com	r25
+  ca:	92 23       	and	r25, r18
+  cc:	9a bb       	out	0x1a, r25	; 26
+  ce:	9b b3       	in	r25, 0x1b	; 27
+  d0:	89 2b       	or	r24, r25
+  d2:	8b bb       	out	0x1b, r24	; 27
+  d4:	80 e0       	ldi	r24, 0x00	; 0
+  d6:	08 95       	ret
+  d8:	2a b3       	in	r18, 0x1a	; 26
+  da:	81 e0       	ldi	r24, 0x01	; 1
+  dc:	90 e0       	ldi	r25, 0x00	; 0
+  de:	02 c0       	rjmp	.+4      	; 0xe4 <DIO_enumSetPinConfig+0x78>
+  e0:	88 0f       	add	r24, r24
+  e2:	99 1f       	adc	r25, r25
+  e4:	6a 95       	dec	r22
+  e6:	e2 f7       	brpl	.-8      	; 0xe0 <DIO_enumSetPinConfig+0x74>
+  e8:	80 95       	com	r24
+  ea:	82 23       	and	r24, r18
+  ec:	8a bb       	out	0x1a, r24	; 26
+  ee:	80 e0       	ldi	r24, 0x00	; 0
+  f0:	08 95       	ret
+  f2:	41 30       	cpi	r20, 0x01	; 1
+  f4:	81 f0       	breq	.+32     	; 0x116 <DIO_enumSetPinConfig+0xaa>
+  f6:	18 f0       	brcs	.+6      	; 0xfe <DIO_enumSetPinConfig+0x92>
+  f8:	42 30       	cpi	r20, 0x02	; 2
+  fa:	f1 f0       	breq	.+60     	; 0x138 <DIO_enumSetPinConfig+0xcc>
+  fc:	94 c0       	rjmp	.+296    	; 0x226 <DIO_enumSetPinConfig+0x1ba>
+  fe:	27 b3       	in	r18, 0x17	; 23
+ 100:	81 e0       	ldi	r24, 0x01	; 1
+ 102:	90 e0       	ldi	r25, 0x00	; 0
+ 104:	02 c0       	rjmp	.+4      	; 0x10a <DIO_enumSetPinConfig+0x9e>
+ 106:	88 0f       	add	r24, r24
+ 108:	99 1f       	adc	r25, r25
+ 10a:	6a 95       	dec	r22
+ 10c:	e2 f7       	brpl	.-8      	; 0x106 <DIO_enumSetPinConfig+0x9a>
+ 10e:	82 2b       	or	r24, r18
+ 110:	87 bb       	out	0x17, r24	; 23
+ 112:	80 e0       	ldi	r24, 0x00	; 0
+ 114:	08 95       	ret
+ 116:	27 b3       	in	r18, 0x17	; 23
+ 118:	81 e0       	ldi	r24, 0x01	; 1
+ 11a:	90 e0       	ldi	r25, 0x00	; 0
+ 11c:	02 c0       	rjmp	.+4      	; 0x122 <DIO_enumSetPinConfig+0xb6>
+ 11e:	88 0f       	add	r24, r24
+ 120:	99 1f       	adc	r25, r25
+ 122:	6a 95       	dec	r22
+ 124:	e2 f7       	brpl	.-8      	; 0x11e <DIO_enumSetPinConfig+0xb2>
+ 126:	98 2f       	mov	r25, r24
+ 128:	90 95       	com	r25
+ 12a:	92 23       	and	r25, r18
+ 12c:	97 bb       	out	0x17, r25	; 23
+ 12e:	98 b3       	in	r25, 0x18	; 24
+ 130:	89 2b       	or	r24, r25
+ 132:	88 bb       	out	0x18, r24	; 24
+ 134:	80 e0       	ldi	r24, 0x00	; 0
+ 136:	08 95       	ret
+ 138:	27 b3       	in	r18, 0x17	; 23
+ 13a:	81 e0       	ldi	r24, 0x01	; 1
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	02 c0       	rjmp	.+4      	; 0x144 <DIO_enumSetPinConfig+0xd8>
+ 140:	88 0f       	add	r24, r24
+ 142:	99 1f       	adc	r25, r25
+ 144:	6a 95       	dec	r22
+ 146:	e2 f7       	brpl	.-8      	; 0x140 <DIO_enumSetPinConfig+0xd4>
+ 148:	80 95       	com	r24
+ 14a:	82 23       	and	r24, r18
+ 14c:	87 bb       	out	0x17, r24	; 23
+ 14e:	80 e0       	ldi	r24, 0x00	; 0
+ 150:	08 95       	ret
+ 152:	41 30       	cpi	r20, 0x01	; 1
+ 154:	81 f0       	breq	.+32     	; 0x176 <DIO_enumSetPinConfig+0x10a>
+ 156:	18 f0       	brcs	.+6      	; 0x15e <DIO_enumSetPinConfig+0xf2>
+ 158:	42 30       	cpi	r20, 0x02	; 2
+ 15a:	f1 f0       	breq	.+60     	; 0x198 <DIO_enumSetPinConfig+0x12c>
+ 15c:	66 c0       	rjmp	.+204    	; 0x22a <DIO_enumSetPinConfig+0x1be>
+ 15e:	24 b3       	in	r18, 0x14	; 20
+ 160:	81 e0       	ldi	r24, 0x01	; 1
+ 162:	90 e0       	ldi	r25, 0x00	; 0
+ 164:	02 c0       	rjmp	.+4      	; 0x16a <DIO_enumSetPinConfig+0xfe>
+ 166:	88 0f       	add	r24, r24
+ 168:	99 1f       	adc	r25, r25
+ 16a:	6a 95       	dec	r22
+ 16c:	e2 f7       	brpl	.-8      	; 0x166 <DIO_enumSetPinConfig+0xfa>
+ 16e:	82 2b       	or	r24, r18
+ 170:	84 bb       	out	0x14, r24	; 20
+ 172:	80 e0       	ldi	r24, 0x00	; 0
+ 174:	08 95       	ret
+ 176:	24 b3       	in	r18, 0x14	; 20
+ 178:	81 e0       	ldi	r24, 0x01	; 1
+ 17a:	90 e0       	ldi	r25, 0x00	; 0
+ 17c:	02 c0       	rjmp	.+4      	; 0x182 <DIO_enumSetPinConfig+0x116>
+ 17e:	88 0f       	add	r24, r24
+ 180:	99 1f       	adc	r25, r25
+ 182:	6a 95       	dec	r22
+ 184:	e2 f7       	brpl	.-8      	; 0x17e <DIO_enumSetPinConfig+0x112>
+ 186:	98 2f       	mov	r25, r24
+ 188:	90 95       	com	r25
+ 18a:	92 23       	and	r25, r18
+ 18c:	94 bb       	out	0x14, r25	; 20
+ 18e:	95 b3       	in	r25, 0x15	; 21
+ 190:	89 2b       	or	r24, r25
+ 192:	85 bb       	out	0x15, r24	; 21
+ 194:	80 e0       	ldi	r24, 0x00	; 0
+ 196:	08 95       	ret
+ 198:	24 b3       	in	r18, 0x14	; 20
+ 19a:	81 e0       	ldi	r24, 0x01	; 1
+ 19c:	90 e0       	ldi	r25, 0x00	; 0
+ 19e:	02 c0       	rjmp	.+4      	; 0x1a4 <DIO_enumSetPinConfig+0x138>
+ 1a0:	88 0f       	add	r24, r24
+ 1a2:	99 1f       	adc	r25, r25
+ 1a4:	6a 95       	dec	r22
+ 1a6:	e2 f7       	brpl	.-8      	; 0x1a0 <DIO_enumSetPinConfig+0x134>
+ 1a8:	80 95       	com	r24
+ 1aa:	82 23       	and	r24, r18
+ 1ac:	84 bb       	out	0x14, r24	; 20
+ 1ae:	80 e0       	ldi	r24, 0x00	; 0
+ 1b0:	08 95       	ret
+ 1b2:	41 30       	cpi	r20, 0x01	; 1
+ 1b4:	81 f0       	breq	.+32     	; 0x1d6 <DIO_enumSetPinConfig+0x16a>
+ 1b6:	18 f0       	brcs	.+6      	; 0x1be <DIO_enumSetPinConfig+0x152>
+ 1b8:	42 30       	cpi	r20, 0x02	; 2
+ 1ba:	f1 f0       	breq	.+60     	; 0x1f8 <DIO_enumSetPinConfig+0x18c>
+ 1bc:	38 c0       	rjmp	.+112    	; 0x22e <DIO_enumSetPinConfig+0x1c2>
+ 1be:	21 b3       	in	r18, 0x11	; 17
+ 1c0:	81 e0       	ldi	r24, 0x01	; 1
+ 1c2:	90 e0       	ldi	r25, 0x00	; 0
+ 1c4:	02 c0       	rjmp	.+4      	; 0x1ca <DIO_enumSetPinConfig+0x15e>
+ 1c6:	88 0f       	add	r24, r24
+ 1c8:	99 1f       	adc	r25, r25
+ 1ca:	6a 95       	dec	r22
+ 1cc:	e2 f7       	brpl	.-8      	; 0x1c6 <DIO_enumSetPinConfig+0x15a>
+ 1ce:	82 2b       	or	r24, r18
+ 1d0:	81 bb       	out	0x11, r24	; 17
+ 1d2:	80 e0       	ldi	r24, 0x00	; 0
+ 1d4:	08 95       	ret
+ 1d6:	21 b3       	in	r18, 0x11	; 17
+ 1d8:	81 e0       	ldi	r24, 0x01	; 1
+ 1da:	90 e0       	ldi	r25, 0x00	; 0
+ 1dc:	02 c0       	rjmp	.+4      	; 0x1e2 <DIO_enumSetPinConfig+0x176>
+ 1de:	88 0f       	add	r24, r24
+ 1e0:	99 1f       	adc	r25, r25
+ 1e2:	6a 95       	dec	r22
+ 1e4:	e2 f7       	brpl	.-8      	; 0x1de <DIO_enumSetPinConfig+0x172>
+ 1e6:	98 2f       	mov	r25, r24
+ 1e8:	90 95       	com	r25
+ 1ea:	92 23       	and	r25, r18
+ 1ec:	91 bb       	out	0x11, r25	; 17
+ 1ee:	92 b3       	in	r25, 0x12	; 18
+ 1f0:	89 2b       	or	r24, r25
+ 1f2:	82 bb       	out	0x12, r24	; 18
+ 1f4:	80 e0       	ldi	r24, 0x00	; 0
+ 1f6:	08 95       	ret
+ 1f8:	21 b3       	in	r18, 0x11	; 17
+ 1fa:	81 e0       	ldi	r24, 0x01	; 1
+ 1fc:	90 e0       	ldi	r25, 0x00	; 0
+ 1fe:	02 c0       	rjmp	.+4      	; 0x204 <DIO_enumSetPinConfig+0x198>
+ 200:	88 0f       	add	r24, r24
+ 202:	99 1f       	adc	r25, r25
+ 204:	6a 95       	dec	r22
+ 206:	e2 f7       	brpl	.-8      	; 0x200 <DIO_enumSetPinConfig+0x194>
+ 208:	80 95       	com	r24
+ 20a:	82 23       	and	r24, r18
+ 20c:	81 bb       	out	0x11, r24	; 17
+ 20e:	80 e0       	ldi	r24, 0x00	; 0
+ 210:	08 95       	ret
+ 212:	82 e0       	ldi	r24, 0x02	; 2
+ 214:	08 95       	ret
+ 216:	83 e0       	ldi	r24, 0x03	; 3
+ 218:	08 95       	ret
+ 21a:	84 e0       	ldi	r24, 0x04	; 4
+ 21c:	08 95       	ret
+ 21e:	80 e0       	ldi	r24, 0x00	; 0
+ 220:	08 95       	ret
+ 222:	80 e0       	ldi	r24, 0x00	; 0
+ 224:	08 95       	ret
+ 226:	80 e0       	ldi	r24, 0x00	; 0
+ 228:	08 95       	ret
+ 22a:	80 e0       	ldi	r24, 0x00	; 0
+ 22c:	08 95       	ret
+ 22e:	80 e0       	ldi	r24, 0x00	; 0
+ 230:	08 95       	ret
+
+Disassembly of section .text.DIO_enumSetPin:
+
+00000232 <DIO_enumSetPin>:
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+	if((Copy_enumPortNum>DIO_enumPortD)||(Copy_enumPortNum<DIO_enumPortA))
+ 232:	84 30       	cpi	r24, 0x04	; 4
+ 234:	08 f0       	brcs	.+2      	; 0x238 <DIO_enumSetPin+0x6>
+ 236:	88 c0       	rjmp	.+272    	; 0x348 <DIO_enumSetPin+0x116>
+	{ ret_enumErrorStatus=DIO_enumWrongPort; }
+	else if((Copy_enumPinNum>DIO_enumPin7)||(Copy_enumPinNum<DIO_enumPin0))
+ 238:	68 30       	cpi	r22, 0x08	; 8
+ 23a:	08 f0       	brcs	.+2      	; 0x23e <DIO_enumSetPin+0xc>
+ 23c:	87 c0       	rjmp	.+270    	; 0x34c <DIO_enumSetPin+0x11a>
+	{ ret_enumErrorStatus= DIO_enumWrongPin; }
+	else if((Copy_enumLogicState<DIO_enumLogicLow)||(Copy_enumLogicState>DIO_enumLogicHigh))
+ 23e:	42 30       	cpi	r20, 0x02	; 2
+ 240:	08 f0       	brcs	.+2      	; 0x244 <DIO_enumSetPin+0x12>
+ 242:	86 c0       	rjmp	.+268    	; 0x350 <DIO_enumSetPin+0x11e>
+	{ ret_enumErrorStatus = DIO_enumWrongConfig; }
+	else
+	{
+		switch (Copy_enumPortNum)
+ 244:	81 30       	cpi	r24, 0x01	; 1
+ 246:	31 f1       	breq	.+76     	; 0x294 <DIO_enumSetPin+0x62>
+ 248:	38 f0       	brcs	.+14     	; 0x258 <DIO_enumSetPin+0x26>
+ 24a:	82 30       	cpi	r24, 0x02	; 2
+ 24c:	09 f4       	brne	.+2      	; 0x250 <DIO_enumSetPin+0x1e>
+ 24e:	40 c0       	rjmp	.+128    	; 0x2d0 <DIO_enumSetPin+0x9e>
+ 250:	83 30       	cpi	r24, 0x03	; 3
+ 252:	09 f4       	brne	.+2      	; 0x256 <DIO_enumSetPin+0x24>
+ 254:	5b c0       	rjmp	.+182    	; 0x30c <DIO_enumSetPin+0xda>
+ 256:	7e c0       	rjmp	.+252    	; 0x354 <DIO_enumSetPin+0x122>
+		{
+		case DIO_enumPortA:
+			switch (Copy_enumLogicState)
+ 258:	44 23       	and	r20, r20
+ 25a:	19 f0       	breq	.+6      	; 0x262 <DIO_enumSetPin+0x30>
+ 25c:	41 30       	cpi	r20, 0x01	; 1
+ 25e:	71 f0       	breq	.+28     	; 0x27c <DIO_enumSetPin+0x4a>
+ 260:	7b c0       	rjmp	.+246    	; 0x358 <DIO_enumSetPin+0x126>
+			{
+			case DIO_enumLogicLow: CLR_BIT(PINA, Copy_enumPinNum);	break;
+ 262:	29 b3       	in	r18, 0x19	; 25
+ 264:	81 e0       	ldi	r24, 0x01	; 1
+ 266:	90 e0       	ldi	r25, 0x00	; 0
+ 268:	02 c0       	rjmp	.+4      	; 0x26e <DIO_enumSetPin+0x3c>
+ 26a:	88 0f       	add	r24, r24
+ 26c:	99 1f       	adc	r25, r25
+ 26e:	6a 95       	dec	r22
+ 270:	e2 f7       	brpl	.-8      	; 0x26a <DIO_enumSetPin+0x38>
+ 272:	80 95       	com	r24
+ 274:	82 23       	and	r24, r18
+ 276:	89 bb       	out	0x19, r24	; 25
+ */
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+ 278:	80 e0       	ldi	r24, 0x00	; 0
+		switch (Copy_enumPortNum)
+		{
+		case DIO_enumPortA:
+			switch (Copy_enumLogicState)
+			{
+			case DIO_enumLogicLow: CLR_BIT(PINA, Copy_enumPinNum);	break;
+ 27a:	08 95       	ret
+			case DIO_enumLogicHigh:SET_BIT(PINA, Copy_enumPinNum);	break;
+ 27c:	29 b3       	in	r18, 0x19	; 25
+ 27e:	81 e0       	ldi	r24, 0x01	; 1
+ 280:	90 e0       	ldi	r25, 0x00	; 0
+ 282:	02 c0       	rjmp	.+4      	; 0x288 <DIO_enumSetPin+0x56>
+ 284:	88 0f       	add	r24, r24
+ 286:	99 1f       	adc	r25, r25
+ 288:	6a 95       	dec	r22
+ 28a:	e2 f7       	brpl	.-8      	; 0x284 <DIO_enumSetPin+0x52>
+ 28c:	82 2b       	or	r24, r18
+ 28e:	89 bb       	out	0x19, r24	; 25
+ */
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+ 290:	80 e0       	ldi	r24, 0x00	; 0
+		{
+		case DIO_enumPortA:
+			switch (Copy_enumLogicState)
+			{
+			case DIO_enumLogicLow: CLR_BIT(PINA, Copy_enumPinNum);	break;
+			case DIO_enumLogicHigh:SET_BIT(PINA, Copy_enumPinNum);	break;
+ 292:	08 95       	ret
+			default:
+				break;
+			}
+			break;
+		case DIO_enumPortB:
+			switch (Copy_enumLogicState)
+ 294:	44 23       	and	r20, r20
+ 296:	19 f0       	breq	.+6      	; 0x29e <DIO_enumSetPin+0x6c>
+ 298:	41 30       	cpi	r20, 0x01	; 1
+ 29a:	71 f0       	breq	.+28     	; 0x2b8 <DIO_enumSetPin+0x86>
+ 29c:	5f c0       	rjmp	.+190    	; 0x35c <DIO_enumSetPin+0x12a>
+			{
+			case DIO_enumLogicLow: CLR_BIT(PINB, Copy_enumPinNum);	break;
+ 29e:	26 b3       	in	r18, 0x16	; 22
+ 2a0:	81 e0       	ldi	r24, 0x01	; 1
+ 2a2:	90 e0       	ldi	r25, 0x00	; 0
+ 2a4:	02 c0       	rjmp	.+4      	; 0x2aa <DIO_enumSetPin+0x78>
+ 2a6:	88 0f       	add	r24, r24
+ 2a8:	99 1f       	adc	r25, r25
+ 2aa:	6a 95       	dec	r22
+ 2ac:	e2 f7       	brpl	.-8      	; 0x2a6 <DIO_enumSetPin+0x74>
+ 2ae:	80 95       	com	r24
+ 2b0:	82 23       	and	r24, r18
+ 2b2:	86 bb       	out	0x16, r24	; 22
+ */
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+ 2b4:	80 e0       	ldi	r24, 0x00	; 0
+			}
+			break;
+		case DIO_enumPortB:
+			switch (Copy_enumLogicState)
+			{
+			case DIO_enumLogicLow: CLR_BIT(PINB, Copy_enumPinNum);	break;
+ 2b6:	08 95       	ret
+			case DIO_enumLogicHigh:SET_BIT(PINB, Copy_enumPinNum);	break;
+ 2b8:	26 b3       	in	r18, 0x16	; 22
+ 2ba:	81 e0       	ldi	r24, 0x01	; 1
+ 2bc:	90 e0       	ldi	r25, 0x00	; 0
+ 2be:	02 c0       	rjmp	.+4      	; 0x2c4 <DIO_enumSetPin+0x92>
+ 2c0:	88 0f       	add	r24, r24
+ 2c2:	99 1f       	adc	r25, r25
+ 2c4:	6a 95       	dec	r22
+ 2c6:	e2 f7       	brpl	.-8      	; 0x2c0 <DIO_enumSetPin+0x8e>
+ 2c8:	82 2b       	or	r24, r18
+ 2ca:	86 bb       	out	0x16, r24	; 22
+ */
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+ 2cc:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+		case DIO_enumPortB:
+			switch (Copy_enumLogicState)
+			{
+			case DIO_enumLogicLow: CLR_BIT(PINB, Copy_enumPinNum);	break;
+			case DIO_enumLogicHigh:SET_BIT(PINB, Copy_enumPinNum);	break;
+ 2ce:	08 95       	ret
+			default:
+				break;
+			}
+			break;
+		case DIO_enumPortC:
+			switch (Copy_enumLogicState)
+ 2d0:	44 23       	and	r20, r20
+ 2d2:	19 f0       	breq	.+6      	; 0x2da <DIO_enumSetPin+0xa8>
+ 2d4:	41 30       	cpi	r20, 0x01	; 1
+ 2d6:	71 f0       	breq	.+28     	; 0x2f4 <DIO_enumSetPin+0xc2>
+ 2d8:	43 c0       	rjmp	.+134    	; 0x360 <DIO_enumSetPin+0x12e>
+			{
+			case DIO_enumLogicLow: CLR_BIT(PINC, Copy_enumPinNum);	break;
+ 2da:	23 b3       	in	r18, 0x13	; 19
+ 2dc:	81 e0       	ldi	r24, 0x01	; 1
+ 2de:	90 e0       	ldi	r25, 0x00	; 0
+ 2e0:	02 c0       	rjmp	.+4      	; 0x2e6 <DIO_enumSetPin+0xb4>
+ 2e2:	88 0f       	add	r24, r24
+ 2e4:	99 1f       	adc	r25, r25
+ 2e6:	6a 95       	dec	r22
+ 2e8:	e2 f7       	brpl	.-8      	; 0x2e2 <DIO_enumSetPin+0xb0>
+ 2ea:	80 95       	com	r24
+ 2ec:	82 23       	and	r24, r18
+ 2ee:	83 bb       	out	0x13, r24	; 19
+ */
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+ 2f0:	80 e0       	ldi	r24, 0x00	; 0
+			}
+			break;
+		case DIO_enumPortC:
+			switch (Copy_enumLogicState)
+			{
+			case DIO_enumLogicLow: CLR_BIT(PINC, Copy_enumPinNum);	break;
+ 2f2:	08 95       	ret
+			case DIO_enumLogicHigh:SET_BIT(PINC, Copy_enumPinNum);	break;
+ 2f4:	23 b3       	in	r18, 0x13	; 19
+ 2f6:	81 e0       	ldi	r24, 0x01	; 1
+ 2f8:	90 e0       	ldi	r25, 0x00	; 0
+ 2fa:	02 c0       	rjmp	.+4      	; 0x300 <DIO_enumSetPin+0xce>
+ 2fc:	88 0f       	add	r24, r24
+ 2fe:	99 1f       	adc	r25, r25
+ 300:	6a 95       	dec	r22
+ 302:	e2 f7       	brpl	.-8      	; 0x2fc <DIO_enumSetPin+0xca>
+ 304:	82 2b       	or	r24, r18
+ 306:	83 bb       	out	0x13, r24	; 19
+ */
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+ 308:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+		case DIO_enumPortC:
+			switch (Copy_enumLogicState)
+			{
+			case DIO_enumLogicLow: CLR_BIT(PINC, Copy_enumPinNum);	break;
+			case DIO_enumLogicHigh:SET_BIT(PINC, Copy_enumPinNum);	break;
+ 30a:	08 95       	ret
+			default:
+				break;
+			}
+			break;
+		case DIO_enumPortD:
+			switch (Copy_enumLogicState)
+ 30c:	44 23       	and	r20, r20
+ 30e:	19 f0       	breq	.+6      	; 0x316 <DIO_enumSetPin+0xe4>
+ 310:	41 30       	cpi	r20, 0x01	; 1
+ 312:	71 f0       	breq	.+28     	; 0x330 <DIO_enumSetPin+0xfe>
+ 314:	27 c0       	rjmp	.+78     	; 0x364 <DIO_enumSetPin+0x132>
+			{
+			case DIO_enumLogicLow: CLR_BIT(PIND, Copy_enumPinNum);	break;
+ 316:	20 b3       	in	r18, 0x10	; 16
+ 318:	81 e0       	ldi	r24, 0x01	; 1
+ 31a:	90 e0       	ldi	r25, 0x00	; 0
+ 31c:	02 c0       	rjmp	.+4      	; 0x322 <DIO_enumSetPin+0xf0>
+ 31e:	88 0f       	add	r24, r24
+ 320:	99 1f       	adc	r25, r25
+ 322:	6a 95       	dec	r22
+ 324:	e2 f7       	brpl	.-8      	; 0x31e <DIO_enumSetPin+0xec>
+ 326:	80 95       	com	r24
+ 328:	82 23       	and	r24, r18
+ 32a:	80 bb       	out	0x10, r24	; 16
+ */
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+ 32c:	80 e0       	ldi	r24, 0x00	; 0
+			}
+			break;
+		case DIO_enumPortD:
+			switch (Copy_enumLogicState)
+			{
+			case DIO_enumLogicLow: CLR_BIT(PIND, Copy_enumPinNum);	break;
+ 32e:	08 95       	ret
+			case DIO_enumLogicHigh:SET_BIT(PIND, Copy_enumPinNum);	break;
+ 330:	20 b3       	in	r18, 0x10	; 16
+ 332:	81 e0       	ldi	r24, 0x01	; 1
+ 334:	90 e0       	ldi	r25, 0x00	; 0
+ 336:	02 c0       	rjmp	.+4      	; 0x33c <DIO_enumSetPin+0x10a>
+ 338:	88 0f       	add	r24, r24
+ 33a:	99 1f       	adc	r25, r25
+ 33c:	6a 95       	dec	r22
+ 33e:	e2 f7       	brpl	.-8      	; 0x338 <DIO_enumSetPin+0x106>
+ 340:	82 2b       	or	r24, r18
+ 342:	80 bb       	out	0x10, r24	; 16
+ */
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+ 344:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+		case DIO_enumPortD:
+			switch (Copy_enumLogicState)
+			{
+			case DIO_enumLogicLow: CLR_BIT(PIND, Copy_enumPinNum);	break;
+			case DIO_enumLogicHigh:SET_BIT(PIND, Copy_enumPinNum);	break;
+ 346:	08 95       	ret
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+	if((Copy_enumPortNum>DIO_enumPortD)||(Copy_enumPortNum<DIO_enumPortA))
+	{ ret_enumErrorStatus=DIO_enumWrongPort; }
+ 348:	82 e0       	ldi	r24, 0x02	; 2
+ 34a:	08 95       	ret
+	else if((Copy_enumPinNum>DIO_enumPin7)||(Copy_enumPinNum<DIO_enumPin0))
+	{ ret_enumErrorStatus= DIO_enumWrongPin; }
+ 34c:	83 e0       	ldi	r24, 0x03	; 3
+ 34e:	08 95       	ret
+	else if((Copy_enumLogicState<DIO_enumLogicLow)||(Copy_enumLogicState>DIO_enumLogicHigh))
+	{ ret_enumErrorStatus = DIO_enumWrongConfig; }
+ 350:	84 e0       	ldi	r24, 0x04	; 4
+ 352:	08 95       	ret
+ */
+DIO_enumError_t DIO_enumSetPin(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum, DIO_enumLogicState_t Copy_enumLogicState)
+{
+		/** VALIDATION **/
+	    /*against wrong port entering*/
+	DIO_enumError_t ret_enumErrorStatus = DIO_enumOk;
+ 354:	80 e0       	ldi	r24, 0x00	; 0
+ 356:	08 95       	ret
+ 358:	80 e0       	ldi	r24, 0x00	; 0
+ 35a:	08 95       	ret
+ 35c:	80 e0       	ldi	r24, 0x00	; 0
+ 35e:	08 95       	ret
+ 360:	80 e0       	ldi	r24, 0x00	; 0
+ 362:	08 95       	ret
+ 364:	80 e0       	ldi	r24, 0x00	; 0
+		default:
+			break;
+		}
+	}
+	return ret_enumErrorStatus;
+}
+ 366:	08 95       	ret
+
+Disassembly of section .text.main:
+
+00000368 <main>:
+
+#include <util/delay.h>
+
+int main(void)
+{/*Confifuration and intialisation*/
+	DIO_enumSetPinConfig(DIO_enumPortA,DIO_enumPin0,DIO_enumOutput);
+ 368:	40 e0       	ldi	r20, 0x00	; 0
+ 36a:	60 e0       	ldi	r22, 0x00	; 0
+ 36c:	80 e0       	ldi	r24, 0x00	; 0
+ 36e:	0e 94 36 00 	call	0x6c	; 0x6c <__data_load_end>
+	DIO_enumSetPin(DIO_enumPortA,DIO_enumPin0,DIO_enumLogicLow);
+ 372:	40 e0       	ldi	r20, 0x00	; 0
+ 374:	60 e0       	ldi	r22, 0x00	; 0
+ 376:	80 e0       	ldi	r24, 0x00	; 0
+ 378:	0e 94 19 01 	call	0x232	; 0x232 <DIO_enumSetPin>
+	DIO_enumSetPinConfig(DIO_enumPortA,DIO_enumPin1,DIO_enumOutput);
+ 37c:	40 e0       	ldi	r20, 0x00	; 0
+ 37e:	61 e0       	ldi	r22, 0x01	; 1
+ 380:	80 e0       	ldi	r24, 0x00	; 0
+ 382:	0e 94 36 00 	call	0x6c	; 0x6c <__data_load_end>
+	DIO_enumSetPin(DIO_enumPortA,DIO_enumPin1,DIO_enumLogicLow);
+ 386:	40 e0       	ldi	r20, 0x00	; 0
+ 388:	61 e0       	ldi	r22, 0x01	; 1
+ 38a:	80 e0       	ldi	r24, 0x00	; 0
+ 38c:	0e 94 19 01 	call	0x232	; 0x232 <DIO_enumSetPin>
+    while(1)
+    {
+        DIO_enumSetPin(DIO_enumPortA,DIO_enumPin0,DIO_enumLogicHigh); /*turning first led on*/
+ 390:	41 e0       	ldi	r20, 0x01	; 1
+ 392:	60 e0       	ldi	r22, 0x00	; 0
+ 394:	80 e0       	ldi	r24, 0x00	; 0
+ 396:	0e 94 19 01 	call	0x232	; 0x232 <DIO_enumSetPin>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 39a:	2f ef       	ldi	r18, 0xFF	; 255
+ 39c:	89 e6       	ldi	r24, 0x69	; 105
+ 39e:	98 e1       	ldi	r25, 0x18	; 24
+ 3a0:	21 50       	subi	r18, 0x01	; 1
+ 3a2:	80 40       	sbci	r24, 0x00	; 0
+ 3a4:	90 40       	sbci	r25, 0x00	; 0
+ 3a6:	e1 f7       	brne	.-8      	; 0x3a0 <main+0x38>
+ 3a8:	00 c0       	rjmp	.+0      	; 0x3aa <main+0x42>
+ 3aa:	00 00       	nop
+		 _delay_ms(1000); /*wait 1 sec*/
+  DIO_enumSetPin(DIO_enumPortA,DIO_enumPin0,DIO_enumLogicLow);/*turning first led off*/
+ 3ac:	40 e0       	ldi	r20, 0x00	; 0
+ 3ae:	60 e0       	ldi	r22, 0x00	; 0
+ 3b0:	80 e0       	ldi	r24, 0x00	; 0
+ 3b2:	0e 94 19 01 	call	0x232	; 0x232 <DIO_enumSetPin>
+        DIO_enumSetPin(DIO_enumPortA,DIO_enumPin1,DIO_enumLogicHigh); /*turning second led on*/
+ 3b6:	41 e0       	ldi	r20, 0x01	; 1
+ 3b8:	61 e0       	ldi	r22, 0x01	; 1
+ 3ba:	80 e0       	ldi	r24, 0x00	; 0
+ 3bc:	0e 94 19 01 	call	0x232	; 0x232 <DIO_enumSetPin>
+ 3c0:	2f ef       	ldi	r18, 0xFF	; 255
+ 3c2:	89 e6       	ldi	r24, 0x69	; 105
+ 3c4:	98 e1       	ldi	r25, 0x18	; 24
+ 3c6:	21 50       	subi	r18, 0x01	; 1
+ 3c8:	80 40       	sbci	r24, 0x00	; 0
+ 3ca:	90 40       	sbci	r25, 0x00	; 0
+ 3cc:	e1 f7       	brne	.-8      	; 0x3c6 <main+0x5e>
+ 3ce:	00 c0       	rjmp	.+0      	; 0x3d0 <main+0x68>
+ 3d0:	00 00       	nop
+		_delay_ms(1000); /*wait 1 sec*/
+		DIO_enumSetPin(DIO_enumPortA,DIO_enumPin1,DIO_enumLogicLow); /*turning second led off*/
+ 3d2:	40 e0       	ldi	r20, 0x00	; 0
+ 3d4:	61 e0       	ldi	r22, 0x01	; 1
+ 3d6:	80 e0       	ldi	r24, 0x00	; 0
+ 3d8:	0e 94 19 01 	call	0x232	; 0x232 <DIO_enumSetPin>
+ 3dc:	d9 cf       	rjmp	.-78     	; 0x390 <main+0x28>
+
+Disassembly of section .text.__dummy_fini:
+
+000003fc <_fini>:
+ 3fc:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+000003fe <__funcs_on_exit>:
+ 3fe:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+00000400 <__simulator_exit>:
+ 400:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+000003de <exit>:
+ 3de:	ec 01       	movw	r28, r24
+ 3e0:	0e 94 ff 01 	call	0x3fe	; 0x3fe <__funcs_on_exit>
+ 3e4:	0e 94 fe 01 	call	0x3fc	; 0x3fc <_fini>
+ 3e8:	ce 01       	movw	r24, r28
+ 3ea:	0e 94 00 02 	call	0x400	; 0x400 <__EEPROM_REGION_LENGTH__>
+ 3ee:	ce 01       	movw	r24, r28
+ 3f0:	0e 94 fc 01 	call	0x3f8	; 0x3f8 <_Exit>
+
+Disassembly of section .text._Exit:
+
+000003f8 <_Exit>:
+ 3f8:	0e 94 34 00 	call	0x68	; 0x68 <_exit>
